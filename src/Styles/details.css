@@ -330,7 +330,7 @@
     position: absolute;
     top: 83%;
     left: 76%;
-    z-index: 1;
+    /* z-index: 1; */
   }
   .tabs {
     position: relative;

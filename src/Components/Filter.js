@@ -37,7 +37,7 @@ class Filter extends React.Component {
 
     axios({
       method: "POST",
-      url: "http://localhost:3030/api/filter",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/filter",
       headers: { "Content-Type": "application/json" },
       data: obj,
     })
@@ -52,7 +52,7 @@ class Filter extends React.Component {
 
     axios({
       method: "GET",
-      url: "http://localhost:3030/api/citylist",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/citylist",
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => this.setState({ locations: response.data.citylist }))
@@ -71,12 +71,15 @@ class Filter extends React.Component {
     };
     axios({
       method: "POST",
-      url: "http://localhost:3030/api/filter",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/filter",
       headers: { "Content-Type": "application/json" },
       data: obj,
     })
       .then((response) =>
-        this.setState({ resturants: response.data.resturant, sort })
+        this.setState({
+          resturants: response.data.resturant,
+          sort: sort,
+        })
       )
       .catch();
   };
@@ -93,7 +96,7 @@ class Filter extends React.Component {
     };
     axios({
       method: "POST",
-      url: "http://localhost:3030/api/filter",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/filter",
       headers: { "Content-Type": "application/json" },
       data: obj,
     })
@@ -116,7 +119,7 @@ class Filter extends React.Component {
     };
     axios({
       method: "POST",
-      url: "http://localhost:3030/api/filter",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/filter",
       headers: { "Content-Type": "application/json" },
       data: obj,
     })
@@ -127,7 +130,7 @@ class Filter extends React.Component {
   };
 
   handlePage = (pagination) => {
-    const { location, mealTypeId, lcost, hcost, sort, cuisine } = this.state;
+    const { location, mealTypeId, lcost, hcost, sort } = this.state;
     const obj = {
       lCost: lcost,
       hCost: hcost,
@@ -135,11 +138,11 @@ class Filter extends React.Component {
       locationId: location,
       mealTypeId: mealTypeId,
       pagination: pagination,
-      cuisine: cuisine.length == 0 ? undefined : cuisine,
+      // cuisine: cuisine.length == 0 ? undefined : cuisine,
     };
     axios({
       method: "POST",
-      url: "http://localhost:3030/api/filter",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/filter",
       headers: { "Content-Type": "application/json" },
       data: obj,
     })
@@ -168,12 +171,12 @@ class Filter extends React.Component {
     };
     axios({
       method: "POST",
-      url: "http://localhost:3030/api/filter",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/filter",
       headers: { "Content-Type": "application/json" },
       data: obj,
     })
       .then((response) =>
-        this.setState({ resturants: response.data.resturant, cuisine })
+        this.setState({ resturants: response.data.resturant })
       )
       .catch();
   };
@@ -353,7 +356,7 @@ class Filter extends React.Component {
                         class="FilterItems"
                         onClick={() => this.handleNextPage(item._id)}
                       >
-                        <img src={item.image} class="FilterPic1" />
+                        <img src={item.image} alt="" class="FilterPic1" />
                         <div class="FilterTheBigChill">{item.name}</div>
                         <div class="FilterFort">{item.locality}</div>
                         <div class="FilterAddress">
@@ -366,7 +369,7 @@ class Filter extends React.Component {
                         <div class="FilterCOSTFORTWO">COST FOR TWO: </div>
 
                         <div class="FilterBakery">
-                          {item.cuisine.map((cuisine) => `${cuisine}  `)}
+                          {item.cuisine.map((cuisine) => `${cuisine.name}  `)}
                         </div>
 
                         <div class="FilterSevenHundred">
@@ -383,10 +386,10 @@ class Filter extends React.Component {
                   class="Filterpagination"
                   style={{ "text-align": "center" }}
                 >
-                  <a href="#">&laquo;</a>
+                  <a href="url">&laquo;</a>
                   <a
                     class="active"
-                    href="#"
+                    href="url"
                     onClick={() => {
                       this.handlePage(1);
                     }}
@@ -394,7 +397,7 @@ class Filter extends React.Component {
                     1
                   </a>
                   <a
-                    href="#"
+                    href="url"
                     onClick={() => {
                       this.handlePage(2);
                     }}
@@ -402,7 +405,7 @@ class Filter extends React.Component {
                     2
                   </a>
                   <a
-                    href="#"
+                    href="url"
                     onClick={() => {
                       this.handlePage(3);
                     }}
@@ -410,7 +413,7 @@ class Filter extends React.Component {
                     3
                   </a>
                   <a
-                    href="#"
+                    href="url"
                     onClick={() => {
                       this.handlePage(4);
                     }}
@@ -418,7 +421,7 @@ class Filter extends React.Component {
                     4
                   </a>
                   <a
-                    href="#"
+                    href="url"
                     onClick={() => {
                       this.handlePage(5);
                     }}
@@ -426,14 +429,14 @@ class Filter extends React.Component {
                     5
                   </a>
                   <a
-                    href="#"
+                    href="url"
                     onClick={() => {
                       this.handlePage(6);
                     }}
                   >
                     6
                   </a>
-                  <a href="#">&raquo;</a>
+                  <a href="url">&raquo;</a>
                 </div>
               ) : (
                 <div class="NotFound">Records Not Found...</div>

@@ -2,7 +2,7 @@ import React from "react";
 import "../Styles/header.css";
 import "../Styles/footer.css";
 import "../Styles/quicksearch.css";
-import CORS from "cors";
+
 import { withRouter } from "react-router-dom";
 
 class QuickSearch extends React.Component {
@@ -35,7 +35,7 @@ class QuickSearch extends React.Component {
                 >
                   <div class="one">
                     <div class="innerboxpic">
-                      <img class="Breakfast" src={item.image} />
+                      <img class="Breakfast" alt="" src={item.image} />
                     </div>
                     <div class="secondbox">
                       <div class="breakfastheading">{item.name}</div>

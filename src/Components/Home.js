@@ -17,7 +17,7 @@ class Home extends React.Component {
     //location
     axios({
       method: "GET",
-      url: "http://localhost:3030/api/citylist",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/citylist",
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => this.setState({ location: response.data.citylist }))
@@ -26,7 +26,7 @@ class Home extends React.Component {
     //QuickSearch mealtype option
     axios({
       method: "GET",
-      url: "http://localhost:3030/api/mealTypes",
+      url: "http://shrouded-spire-35349.herokuapp.com/api/mealTypes",
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => this.setState({ mealTypes: response.data.mealtypes }))

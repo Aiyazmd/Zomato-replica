@@ -57,7 +57,7 @@ class Details extends React.Component {
 
     axios({
       method: "GET",
-      url: `http://localhost:3030/api/resturantbyid/${resturantId}`,
+      url: `http://shrouded-spire-35349.herokuapp.com/api/resturantbyid/${resturantId}`,
       headers: { "Content-Type": "application/json" },
     })
       .then((response) =>
@@ -80,7 +80,7 @@ class Details extends React.Component {
     if (state == "menuItemsModalIsOpen" && value == true) {
       axios({
         method: "GET",
-        url: `http://localhost:3030/api/getMenu/${resturantId}`,
+        url: `http://shrouded-spire-35349.herokuapp.com/api/getMenu/${resturantId}`,
         headers: { "Content-Type": "application/json" },
       })
         .then((response) => {
@@ -155,7 +155,7 @@ class Details extends React.Component {
     form.remove();
   };
   getData = (data) => {
-    return fetch(`http://localhost:3030/api/payment`, {
+    return fetch(`http://shrouded-spire-35349.herokuapp.com/api/payment`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -267,7 +267,7 @@ class Details extends React.Component {
                   ? resturantData.thumb.map((item) => {
                       return (
                         <div>
-                          <img src={item} height="500px" width="600px" />
+                          <img src={item} alt="" height="500px" width="600px" />
                         </div>
                       );
                     })
@@ -342,6 +342,7 @@ class Details extends React.Component {
                               <img
                                 className="card-img-center title-img"
                                 src={`../${item.image}`}
+                                alt=""
                                 style={{
                                   margin: "15px 10px 10px 2px",
                                   height: "92px",
